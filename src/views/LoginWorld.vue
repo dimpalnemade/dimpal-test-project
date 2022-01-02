@@ -3,16 +3,16 @@
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img alt="Vue" class="shrink mr-2" contain src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png" transition="scale-transition" width="40" />
-           <div>Vue Project</div>
+        <div>Vue Project</div>
       </div>
 
       <v-spacer></v-spacer>
     </v-app-bar>
     <v-content>
+      <v-img class="white--text" src="../assets/influencerbackground.jpg">
+        <v-container fluid fill-height>
 
-      <v-container fluid fill-height>
-        <v-img class="white--text" src="../assets/influencerbackground.jpg">
-          <v-layout align-center justify-center style="margin-top:80px;">
+          <v-layout align-center justify-center>
             <v-flex xs12 sm8 md4>
               <v-card class="elevation-12">
                 <v-toolbar dark color="primary">
@@ -36,9 +36,9 @@
               </v-card>
             </v-flex>
           </v-layout>
-        </v-img>
-      </v-container>
 
+        </v-container>
+      </v-img>
     </v-content>
   </v-app>
 </template>
@@ -63,8 +63,12 @@ export default {
       const { username, password } = this;
       if (this.username != "" && this.password != "") {
         this.login({ username, password });
+        this.$snackbar({ type: 'success', message: 'Login succesfully' })
       } else {
-        alert('Please fill the text!');
+        this.$snackbar({
+        type: 'warning',
+        message: 'Please fill the text!'
+      })
       }
     }
   },
