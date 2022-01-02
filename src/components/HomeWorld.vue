@@ -17,7 +17,7 @@
         <v-img class="white--text" src="../assets/backgroundaddinfo1.jpg">
           <v-layout align-center justify-center style="margin-top:80px;">
             <v-flex xs12 sm8 md4>
-              <v-card>
+              <v-card style="width:900px;">
                 <v-toolbar card color="pink" dark>
                   <v-icon>arrow_back</v-icon>
                   <v-toolbar-title>Compose</v-toolbar-title>
@@ -25,11 +25,11 @@
                   <v-icon>send</v-icon>
                 </v-toolbar>
                 <v-form>
-                  <v-autocomplete v-model="selected" :items="['Trevor Handsen', 'Alex Nelson']" chips label="To" full-width hide-details hide-no-data hide-selected multiple single-line></v-autocomplete>
+                  <div style="margin:20px;">
+                  <v-text-field label="Blog Tittle" v-model="blogTitle" single-line full-width hide-details></v-text-field>
                   <v-divider></v-divider>
-                  <v-text-field label="Subject" value="Plans for the weekend" single-line full-width hide-details></v-text-field>
-                  <v-divider></v-divider>
-                  <v-textarea v-model="title" label="Message" counter maxlength="120" full-width single-line></v-textarea>
+                  <v-textarea v-model="title" label="Write blog" counter maxlength="120" full-width single-line></v-textarea>
+                  </div>
                 </v-form>
               </v-card>
             </v-flex>
@@ -48,7 +48,8 @@ export default {
       info: 'You are have been login and this is Home Page',
       selected: ['Trevor Handsen'],
         items: ['Trevor Handsen', 'Alex Nelson'],
-        title: 'Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa'
+        blog: '',
+        blogTitle:''
     }
   },
   methods: {
